@@ -1,41 +1,7 @@
-def isNegativeIndice(i, j):
-    if i < 0 or j < 0:
-        return True
-    return False
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import product
 
-def LeftToRight(data, i, j):
-    product = 1
-    for x in range(5):
-        if isNegativeIndice(i, j+x) or j+x > 45:
-            return False
-        product *= int(data[i][j+x])
-    return product
-
-def UpToDown(data, i, j): 
-    product = 1
-    for x in range(5):
-        if isNegativeIndice(i+x, j) or i+x > 15:
-            return False
-        product *= int(data[i+x][j])
-    return product
-
-def LeftUpToRightDown(data, i, j):
-    product = 1
-    for x in range(5):
-        if isNegativeIndice(i+x, j+x) or i+x > 15 or j+x > 45:
-            return False
-        product *= int(data[i+x][j+x])
-    return product
-
-def RightUpToLeftDown(data, i, j):
-    product = 1
-    for x in range(5):
-        if i-x < 0 or j+x < 0 or j+x > 4    5:
-            return False
-        product *= int(data[i-x][j+x])
-    return product
-
-data = """73167176531330624919225119674426574742355349194934
+series = """73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
 12540698747158523863050715693290963295227443043557
@@ -54,15 +20,8 @@ data = """73167176531330624919225119674426574742355349194934
 07198403850962455444362981230987879927244284909188
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
-71636269561882670428252483600823257530420752963450""".splitlines()
-ProductList = []
+71636269561882670428252483600823257530420752963450""".replace('\n', '').replace('\r', '')
 
-for i in range(len(data)):
-    for j in range(len(data[0])):
-        ProductList.append(RightUpToLeftDown(data,i,j))
-        ProductList.append(LeftToRight(data,i,j))
-        ProductList.append(UpToDown(data,i,j))
-        ProductList.append(LeftUpToRightDown(data,i,j))
-        ProductList = [max(ProductList)]
-
-print(ProductList)
+Answer(
+    max([product(list(series[i:i+13])) for i in range(0, len(series))])
+)

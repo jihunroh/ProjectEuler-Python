@@ -8,3 +8,9 @@ def Answer(answer):
     print("   The Answer is: %s" %answer)
     print("   Time Elasped: %ssec" %(time.time() - start_time))
     print("------------------------------------------------")
+
+def product(numberlist):
+    prod = 1
+    for n in numberlist:
+        prod *= int(n)
+    return prod
