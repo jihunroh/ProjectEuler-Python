@@ -1,41 +1,8 @@
-def isNegativeIndice(i, j):
-    if i < 0 or j < 0:
-        return True
-    return False
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import product
 
-def LeftToRight(data, i, j):
-    product = 1
-    for x in range(4):
-        if isNegativeIndice(i, j+x) or j+x > 16:
-            return False
-        product *= int(data[i][j+x])
-    return product
-
-def UpToDown(data, i, j): 
-    product = 1
-    for x in range(4):
-        if isNegativeIndice(i+x, j) or i+x > 16:
-            return False
-        product *= int(data[i+x][j])
-    return product
-
-def LeftUpToRightDown(data, i, j):
-    product = 1
-    for x in range(4):
-        if isNegativeIndice(i+x, j+x) or i+x > 16 or j+x > 16:
-            return False
-        product *= int(data[i+x][j+x])
-    return product
-
-def RightUpToLeftDown(data, i, j):
-    product = 1
-    for x in range(4):
-        if i-x < 0 or j+x < 0 or j+x > 16:
-            return False
-        product *= int(data[i-x][j+x])
-    return product
-
-data = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+grid = [list(map(int, line.split(' '))) for line in
+"""08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -54,19 +21,33 @@ data = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
-01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48""".splitlines()
+01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
+.splitlines()]
 
-for i in range(len(data)):
-    data[i] = data[i].split(' ')
+def rightward(i, j):
+    try:
+        return [int(grid[i][j+x]) for x in range(4)]
+    except IndexError:
+        return [0] * 4
 
-ProductList = []
+def downward(i, j):
+    try:
+        return [int(grid[i+x][j]) for x in range(4)]
+    except IndexError:
+        return [0] * 4
 
-for i in range(len(data)):
-    for j in range(len(data[0])):
-        ProductList.append(RightUpToLeftDown(data,i,j))
-        ProductList.append(LeftToRight(data,i,j))
-        ProductList.append(UpToDown(data,i,j))
-        ProductList.append(LeftUpToRightDown(data,i,j))
-        ProductList = [max(ProductList)]
+def rightdownward(i, j):
+    try:
+        return [int(grid[i+x][j+x]) for x in range(4)]
+    except IndexError:
+        return [0] * 4
 
-print(ProductList[0])
+def leftdownward(i, j):
+    try:
+        return [int(grid[i-x][j+x]) for x in range(4)]
+    except IndexError:
+        return [0] * 4
+
+Answer(
+    max([max([product(rightward(i, j)), product(downward(i, j)), product(rightdownward(i, j)), product(leftdownward(i, j))]) for i in range(len(grid)) for j in range(len(grid[0]))])
+)
