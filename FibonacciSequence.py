@@ -1,14 +1,10 @@
 # Fibonacci numbers module
 
-def Generator(max_number = None):
-    a, b = 1, 1
-    yield a
-    yield b
+def generate_fibonacci(max_number = None):            
+    prev, curr = 0, 1
     while True:
-        temp = a
-        a = b
-        b = temp + b
-        if (max_number is not None and b > max_number):
+        if (max_number is not None and curr > max_number):
             break
         else:
-            yield b
+            yield curr
+        prev, curr = curr, prev + curr
