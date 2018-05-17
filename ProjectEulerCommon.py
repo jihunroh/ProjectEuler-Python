@@ -14,3 +14,9 @@ def product(numberlist):
     for n in numberlist:
         prod *= int(n)
     return prod
+    
+def combination(n, r):
+    return int(product(range(r+1, n+1)) / factorial(n-r))
+
+def factorial(n):
+    return n * factorial(n-1) if n is not 1 else 1
