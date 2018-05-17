@@ -1,30 +1,17 @@
-import time
+from ProjectEulerCommon import Answer
 
-def IterateTerm(n):
-    if n % 2 == 0: #even
-        return n / 2
-    else:
-        return 3 * n + 1
-def CountTerms(n):
-    count = 1
-    while n != 1:
-        n = IterateTerm(n)
-        count += 1
-    return count
-T0 = time.clock()
+def get_collatz_sequence_length(n):
+    length = 1
+    while (n is not 1):
+        n = int(n / 2) if n % 2 == 0 else 3 * n + 1
+        length += 1
+    return length
+number, max_length = 1, 1
 
-data = [1,1]
-
-for i in range(1, 1000000):
-    cnt = CountTerms(i)
-    #print(i, cnt)
-    if cnt > data[1]:
-        data = [i, cnt]
-
-print(data)
-print('The execution time is', time.clock()-T0)
-
-"""
-[837799, 525]
-The execution time is 202.311231011
-"""
+for x in range(1, 1000000 + 1):
+    length = get_collatz_sequence_length(x)
+    if length > max_length:
+        number, max_length = x, length
+Answer(
+    number
+)
