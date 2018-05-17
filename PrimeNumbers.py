@@ -6,7 +6,7 @@ def is_prime(x):
         return True
     if x % 2 == 0:
         return False
-    for divisor in [a for a in range(2, int(sqrt(x)) + 1) if not a % 2 == 0]:
+    for divisor in [a for a in range(3, int(sqrt(x)) + 1, 2)]:
         if x % divisor == 0:
             return False
     return True
