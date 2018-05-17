@@ -1,7 +1,7 @@
 import time, inspect
+start_time = time.time()
 
 def Answer(answer):
-    start_time = time.time()
     filename = inspect.getmodule(inspect.stack()[1][0]).__file__
     print("------------------------------------------------")
     print("   " + filename)
