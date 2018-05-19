@@ -1,7 +1,6 @@
-import calendar
-count = 0
-for year in range(1901, 2001):
-    for month in range(1, 13):
-        if calendar.monthrange(year, month)[0] == 6:
-            count += 1
-print(count)
+from ProjectEulerCommon import Answer
+from calendar import monthrange
+
+Answer(
+    len([(year, month) for year in range(1901, 2000 + 1) for month in range(1, 12 + 1) if monthrange(year, month)[0] == 6])
+)
