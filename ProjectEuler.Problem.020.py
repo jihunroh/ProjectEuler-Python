@@ -1,10 +1,6 @@
-def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return factorial(n-1) * n
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import factorial
 
-sum2, num = 0, str(2**1000)
-for i in range(len(num)):
-    sum2 += int(num[i])
-print(sum2)
+Answer(
+    sum([int(digit) for digit in str(factorial(100))])
+)
