@@ -9,5 +9,5 @@ def generate_permutations(digit_lists):
                 yield [digit] + sub_permutation
 
 Answer(
-    ''.join([str(digit) for digit in next(n for i, n in enumerate(generate_permutations(list(range(10)))) if i == 1000000 - 1)]
+    ''.join([str(digit) for digit in next(n for i, n in enumerate(generate_permutations(list(range(10)))) if i == 1000000 - 1)])
 )
