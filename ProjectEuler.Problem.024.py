@@ -1,17 +1,13 @@
-def permutations(number):
-    number
-    if len(number) <= 1:
-        yield number
+from ProjectEulerCommon import Answer
+
+def generate_permutations(digit_lists):
+    if len(digit_lists) == 1:
+        yield digit_lists
     else:
-        for perm in permutations(number[1:]):
-            for i in range(len(perm)+1):
-                yield perm[:i] + number[0:1] + perm[i:]
-perms = permutations('0123456789')
-List = []
-while True:
-    try:
-        List.append(next(perms))
-    except:
-        break
-List.sort()
-print(List[1000000-1])
+        for i, digit in enumerate(digit_lists):
+            for sub_permutation in generate_permutations(digit_lists[:i] + digit_lists[i+1:]):
+                yield [digit] + sub_permutation
+
+Answer(
+    ''.join([str(digit) for digit in next(n for i, n in enumerate(generate_permutations(list(range(10)))) if i == 1000000 - 1)]
+)
