@@ -1,21 +1,11 @@
-import time
-T0 = time.clock()
+from ProjectEulerCommon import Answer
+from itertools import count
 
-def f(money, coins):
-    i, count = 0, 0
+def count_ways(money, coins):
+    if len(coins) == 1:
+        return 1 if money % coins[0] == 0 else 0
+    return sum([count_ways(money - coins[0] * cnt_first_coin, coins[1:]) for cnt_first_coin in range(0, next(cnt_first_coin for cnt_first_coin in count(0) if money - coins[0] * cnt_first_coin < 0))])
 
-    if (len(coins) == 1):
-        if money % coins[0] == 0:
-            return 1
-        else:
-            return 0
-
-    while money - coins[0] * i >= 0:
-        temp = f(money - coins[0] * i, coins[1:])
-        count += temp
-        i += 1
-    return count
-
-print(f(200, [200, 100, 50, 20, 10, 5, 2, 1]))
-    
-print('The execution time is', time.clock()-T0)
+Answer(
+    count_ways(200, [200, 100, 50, 20, 10, 5, 2, 1])
+)
