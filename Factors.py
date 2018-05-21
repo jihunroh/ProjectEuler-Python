@@ -1,4 +1,5 @@
 from math import sqrt
+from ProjectEulerCommon import product
 
 def factorize(n):
     FactorsList = [1, n]
@@ -38,4 +39,8 @@ def get_LCM(number_list):
     return result
 
 def get_GCD(numberlist):
-    return int(prod(numberlist) / getLCM(numberlist))
+    return int(product(numberlist) / get_LCM(numberlist))
+
+def get_irreducibe_fraction(fraction):
+    GCD = get_GCD([fraction[0], fraction[1]])
+    return (int(fraction[0] / GCD), int(fraction[1] / GCD))
