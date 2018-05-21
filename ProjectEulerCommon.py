@@ -20,3 +20,10 @@ def combination(n, r):
 
 def factorial(n):
     return n * factorial(n-1) if n is not 1 else 1
+    
+def max_index(key_value_dict):
+    max_key, max_value = next(iter(key_value_dict)), key_value_dict[next(iter(key_value_dict))]
+    for key in key_value_dict.keys():
+        if key_value_dict[key] > max_value:
+            max_key, max_value = key, key_value_dict[key]
+    return (max_key, max_value)

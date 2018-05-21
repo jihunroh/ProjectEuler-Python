@@ -2,6 +2,8 @@ from math import sqrt
 from itertools import islice
 
 def is_prime(x):
+    if x <= 0:
+        return False
     if x == 2:
         return True
     if x % 2 == 0:
