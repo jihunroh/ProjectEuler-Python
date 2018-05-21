@@ -1,27 +1,16 @@
-import time
-T0 = time.clock()
-from decimal import * 
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import max_index
+from itertools import count
 
-def count_recurring_length(n):
-    i, numberList = 0, []
-    while True:
-        getcontext().prec = 10 + i #abnormalous effect
-        temp = Decimal('1') / Decimal(str(n)) * (Decimal(10) ** Decimal(i)) % Decimal(1)
-        if temp == 0:
-            return 0
-        if temp in numberList:
-            return i - numberList.index(temp)   
-        numberList.append(temp)
-        i += 1
-cycleList, previous_max = [], 0
+def generate_recurring_denominator(): #9 > 90 > 99 > 900 > 990 > 999 > 9000 > 9900 > 9990 > 9999 > ...
+    for length in count(1):
+        for nine_length in range(1, length):
+            yield int('9' * nine_length + '0' * (length - nine_length))
 
-for i in range(1,1000):
-    candi_max = count_recurring_length(i)
-    if previous_max < candi_max:
-        candi_d = i
-        previous_max = candi_max
-    if i % 100 == 0:
-        print(i)
-print('d value', candi_d,'has', previous_max, 'recurring digits')
+def recurring_cycle_length(n):
+    denominator = next(denominator for denominator in generate_recurring_denominator() if denominator % n == 0)
+    return 0 if sum([int(digit) for digit in str(int(denominator // n))]) == 9 else str(denominator).count('9')
 
-print('The execution time is', time.clock()-T0)
+Answer(
+    max_index({num: recurring_cycle_length(num) for i, num in enumerate(range(1, 1000))})[0]
+)
