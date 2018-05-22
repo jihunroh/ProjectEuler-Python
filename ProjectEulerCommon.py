@@ -19,7 +19,7 @@ def combination(n, r):
     return int(product(range(r+1, n+1)) / factorial(n-r))
 
 def factorial(n):
-    return n * factorial(n-1) if n is not 1 else 1
+    return n * factorial(n-1) if (n != 0 and n != 1) else 1
     
 def max_index(key_value_dict):
     max_key, max_value = next(iter(key_value_dict)), key_value_dict[next(iter(key_value_dict))]
