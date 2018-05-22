@@ -2,7 +2,7 @@ from math import sqrt
 from itertools import islice, takewhile
 
 def is_prime(x):
-    if x <= 0:
+    if x <= 1:
         return False
     if x == 2:
         return True
