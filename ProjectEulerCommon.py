@@ -27,3 +27,10 @@ def max_index(key_value_dict):
         if key_value_dict[key] > max_value:
             max_key, max_value = key, key_value_dict[key]
     return (max_key, max_value)
+
+def is_palindromic(n):
+    n = str(n)
+    for i in range(0, len(n)):
+        if not n[i] == n[len(n) - i - 1]:
+             return False
+    return True
