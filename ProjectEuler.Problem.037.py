@@ -1,28 +1,23 @@
-import time
-from eulerlibs import is_prime, iterate_prime
-T0 = time.clock()
+from ProjectEulerCommon import Answer
+from PrimeNumbers import generate_prime, is_prime
+from itertools import takewhile, islice
 
-def get_truncate_list(n):
-    return [int(str(n)[i:]) for i in range(1, len(str(n)))] + [int(str(n)[:j]) for j in range(1, len(str(n)))]
-def is_prime_list(numberlist):
+def is_truncatable_prime(n):
+    if n in [2, 3, 5, 7]:
+        return False
+    numberlist = [int(str(n)[i:]) for i in range(1, len(str(n)))] + [int(str(n)[:j]) for j in range(1, len(str(n)))]
     for n in numberlist:
         if not is_prime(n):
             return False
     return True
-prime, count, ans = iterate_prime(), 0, []
-next(prime) # 2
-next(prime) # 3
-next(prime) # 5
-next(prime) # 7
-while True:
-    prime_n = next(prime)
-    truncatelist = get_truncate_list(prime_n)
-    if is_prime_list(truncatelist):
-        ans.append(prime_n)
-        count += 1
-    if count == 11:
-        break
-print(ans, sum(ans))
-print('The execution time is', time.clock()-T0)
-#[23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397] 748317
-#The execution time is 57.0643115767
+
+def generate_truncatable_prime():
+    g = generate_prime()
+    while True:
+        temp = next(g)
+        if is_truncatable_prime(temp):
+            yield temp
+
+Answer(
+    sum([num for num in islice(generate_truncatable_prime(), 11)])
+)
