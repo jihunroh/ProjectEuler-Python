@@ -1,5 +1,5 @@
 from math import sqrt
-from itertools import islice
+from itertools import islice, takewhile
 
 def is_prime(x):
     if x <= 0:
@@ -27,3 +27,6 @@ def generate_prime():
 def get_nth_prime(n):
     f = generate_prime()
     return list(islice(f, n))[-1]
+
+def generate_prime_below(upperbound):
+    return takewhile(lambda x: x <= upperbound, generate_prime())
