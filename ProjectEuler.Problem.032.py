@@ -1,5 +1,5 @@
 from ProjectEulerCommon import Answer
-from itertools import permutations
+from PandigitalNumbers import generate_pandigital_digits_list
 
 def canbe_equation(pandigital, product_length):
     product = int(''.join(map(str, pandigital[9 - product_length:])))
@@ -14,7 +14,7 @@ Answer(
     sum(set([
         int(''.join(map(str, pandigital[9 - product_length:])))
         for product_length in range(4, 5)
-        for pandigital in permutations(range(1, 10))
+        for pandigital in generate_pandigital_digits_list()
         if canbe_equation(pandigital, product_length)
     ]))
 )
