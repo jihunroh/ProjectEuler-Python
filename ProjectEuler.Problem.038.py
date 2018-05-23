@@ -1,31 +1,24 @@
-import time
-from eulerlibs import is_prime
-T0 = time.clock()
+from ProjectEulerCommon import Answer
+from PandigitalNumbers import generate_pandigital
 
-def is_pandigital(n):
-    numberlist = []
-    for i in range(len(n)):
-        numberlist.append(int(n[i]))
-    numberlist.sort()
-    if numberlist == list(range(1, 10)):
-        return True
+def get_concatenated_product(multiplicand):
+    j, concat_product = 1, ''
+
+    while len(concat_product) < 9:
+        concat_product += str(int(multiplicand) * j)
+        j += 1
+
+    return concat_product if len(concat_product) == 9 else None
+
+def is_concatenated_product(pandigital_num):    
+    for i in range(1, 8):
+        multiplicand = str(pandigital_num)[:i]
+        if get_concatenated_product(multiplicand) == str(pandigital_num):
+            return True
+        else:
+            continue
     return False
 
-def concatenate_product(p, prodlist):
-    prodlist = [p * prod for prod in prodlist]
-    number = ''
-    for i in range(len(prodlist)):
-        number += str(prodlist[i])
-    return number
-
-
-p, pandigital_list = 2, []
-
-while (p < 1000000000):
-    p += 1
-    for i in range(2, 10):
-        candi_pandigital = concatenate_product(p, range(1, i))
-        if is_pandigital(candi_pandigital):
-            pandigital_list.append(candi_pandigital)
-print([2 * x for x in a])
-print('The execution time is', time.clock()-T0)
+Answer(
+    max([pandigital_num for pandigital_num in generate_pandigital() if is_concatenated_product(pandigital_num)])
+)
