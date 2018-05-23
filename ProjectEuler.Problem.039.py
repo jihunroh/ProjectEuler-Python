@@ -1,23 +1,12 @@
-import time
-T0 = time.clock()
-def count_sides(p):
-    count = 0
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import max_index
+
+def generate_triangle_length_for_perimeter(p):
     for a in range(1, p - 2):
         for b in range(a, p - a - 1):
-            c = p - a - b
-            if c < a or c < b:
-                break
-            if a ** 2 + b ** 2 == c ** 2:
-                count += 1
-                break
-    return count
-previous_sides = 0
-for i in range(1, 1001):
-    candi_sides = count_sides(i)
-    if previous_sides < candi_sides:
-        previous_sides, candi_p = candi_sides, i
-print(candi_p, previous_sides)
-print('The execution time is', time.clock()-T0)
+            if a**2 + b**2 == (p - a - b)**2:
+                yield (a, b, p - a - b)
 
-#840 8
-#The execution time is 52.6848875001
+Answer(
+    max_index([(p, sum(1 for i in generate_triangle_length_for_perimeter(p))) for p in range(3, 1000 + 1)])[0]
+)
