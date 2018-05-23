@@ -1,29 +1,14 @@
-import time
-T0 = time.clock()
-global triangular_number_list
-triangular_number_list = [0.5 * x * (x + 1) for x in range(1000)]
+from ProjectEulerCommon import Answer
+from string import ascii_uppercase
+from math import sqrt
 
-def alphabeticalValue(c):
-    return ord(c) - 64
+def is_triangle_word(word):
+    word_value =  sum(list(map(lambda x: ascii_uppercase.index(x) + 1, word)))
+    return ((-1 + sqrt(1 + 8 * word_value)) * 0.5).is_integer()
 
-def is_triangular_number(n):
-    return n in triangular_number_list
+with open('ProjectEuler.Problem.042.words.txt', 'r') as f:
+    words = [line.replace('"', '').split(',') for line in f.readlines()][0]
 
-raw_data = open('words.txt')
-for data in raw_data:
-    pass
-data = data.replace('"', '')
-data = data.split(',')
-data.sort()
-count, i = 0, 0 
-
-for item in data:
-    value = 0
-    for c in item:
-        value += alphabeticalValue(c)
-    if is_triangular_number(value):
-        count += 1
-    i += 1
-print(count)
-
-print('The execution time is', time.clock()-T0)
+Answer(
+    sum([1 for word in words if is_triangle_word(word)])
+)
