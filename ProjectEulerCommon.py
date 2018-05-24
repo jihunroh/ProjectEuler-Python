@@ -1,4 +1,5 @@
 import time, inspect
+from itertools import islice, groupby
 start_time = time.time()
 
 def Answer(answer):
@@ -49,3 +50,29 @@ def max_generator(finite_generator):
         if value > max_value:
             max_value = value
     return max_value
+
+def nth(iterable, n, default=None):
+    # Returns the nth item or a default value"
+    return next(islice(iterable, n, None), default)
+
+def all_equal(iterable):
+    # Returns True if all the elements are equal to each other"
+    g = groupby(iterable)
+    return next(g, True) and not next(g, False)
+
+def quantify(iterable, pred=bool):
+    # Count how many times the predicate is true"
+    return sum(map(pred, iterable))
+
+def first_true(iterable, default=False, pred=None):
+    """Returns the first true value in the iterable.
+
+    If no true value is found, returns *default*
+
+    If *pred* is not None, returns the first item
+    for which pred(item) is true.
+
+    """
+    # first_true([a,b,c], x) --> a or b or c or x
+    # first_true([a,b], x, f) --> a if f(a) else b if f(b) else x
+    return next(filter(pred, iterable), default)
