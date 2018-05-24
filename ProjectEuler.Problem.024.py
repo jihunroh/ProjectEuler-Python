@@ -1,6 +1,7 @@
 from ProjectEulerCommon import Answer
+from ProjectEulerCommon import first_true_value
 from itertools import permutations
 
 Answer(
-    ''.join([str(digit) for digit in next(n for i, n in enumerate(permutations(list(range(10)))) if i == 1000000 - 1)])
+    int(''.join(map(str, first_true_value(permutations(list(range(10))), None, lambda enum: enum[0] == 1000000 - 1))))
 )

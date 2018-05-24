@@ -1,8 +1,9 @@
 from ProjectEulerCommon import Answer
+from ProjectEulerCommon import first_true
 from Factors import factorize
 from itertools import count
 from GeometricalNumbers import generate_triangular_number
 
 Answer(
-    next(x for x in generate_triangular_number() if len(factorize(x)) > 500)
+    first_true(generate_triangular_number(), None, lambda n: len(factorize(n)) > 500)
 )

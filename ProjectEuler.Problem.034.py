@@ -1,9 +1,9 @@
 from ProjectEulerCommon import Answer
-from ProjectEulerCommon import factorial
+from ProjectEulerCommon import factorial, first_true
 from itertools import count
 
 Answer(
-    sum([n for n in range(10, factorial(9) * (next(digits_length for digits_length in count(1) if factorial(9) * digits_length < 10**(digits_length - 1)) - 1)) if  sum([factorial(int(digit)) for digit in str(n)]) == n])
+    sum([n for n in range(10, factorial(9) * (first_true(count(1), pred = lambda digits_length: factorial(9) * digits_length < 10**(digits_length - 1)) - 1)) if sum([factorial(int(digit)) for digit in str(n)]) == n])
 )
 
 # 숫자                  자릿수팩토리얼 합

@@ -1,5 +1,5 @@
 from ProjectEulerCommon import Answer
-from ProjectEulerCommon import max_index
+from ProjectEulerCommon import max_index, first_true
 from itertools import count
 
 def generate_recurring_denominator(): #9 > 90 > 99 > 900 > 990 > 999 > 9000 > 9900 > 9990 > 9999 > ...
@@ -8,7 +8,7 @@ def generate_recurring_denominator(): #9 > 90 > 99 > 900 > 990 > 999 > 9000 > 99
             yield int('9' * nine_length + '0' * (length - nine_length))
 
 def recurring_cycle_length(n):
-    denominator = next(denominator for denominator in generate_recurring_denominator() if denominator % n == 0)
+    denominator = first_true(generate_recurring_denominator(), None, lambda x: x % n == 0)
     return 0 if sum([int(digit) for digit in str(int(denominator // n))]) == 9 else str(denominator).count('9')
 
 Answer(

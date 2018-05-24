@@ -1,4 +1,5 @@
 from ProjectEulerCommon import Answer
+from ProjectEulerCommon import first_true_value
 from itertools import count
 
 def generate_digit_of_irrational_decimal_fraction():
@@ -7,11 +8,11 @@ def generate_digit_of_irrational_decimal_fraction():
             yield int(j)
 
 Answer(
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 1) *
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 10) *
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 100) *
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 1000) *
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 10000) *
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 100000) *
-    next(x for i, x in enumerate(generate_digit_of_irrational_decimal_fraction()) if i + 1 == 1000000)
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 1) *
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 10) *
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 100) *
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 1000) *
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 10000) *
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 100000) *
+    first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 1000000)
 )

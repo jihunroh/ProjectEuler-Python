@@ -76,3 +76,11 @@ def first_true(iterable, default=False, pred=None):
     # first_true([a,b,c], x) --> a or b or c or x
     # first_true([a,b], x, f) --> a if f(a) else b if f(b) else x
     return next(filter(pred, iterable), default)
+
+def first_true_index(iterable, default=False, pred=None):
+    iterable = enumerate(iterable)
+    return next(filter(pred, iterable), default)[0]
+
+def first_true_value(iterable, default=False, pred=None):
+    iterable = enumerate(iterable)
+    return next(filter(pred, iterable), default)[1]
