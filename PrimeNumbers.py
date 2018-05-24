@@ -17,12 +17,11 @@ def generate_prime():
     n = 2
     yield n
     n = 3
-    yield n
     
     while True:
-        n += 2
         if is_prime(n):
             yield n
+        n += 2
 
 def get_nth_prime(n):
     f = generate_prime()
@@ -30,3 +29,19 @@ def get_nth_prime(n):
 
 def generate_prime_below(upperbound):
     return takewhile(lambda x: x <= upperbound, generate_prime())
+
+def generate_prime_above(lowerbound):
+    n = lowerbound + 1 if lowerbound % 2 == 0 else lowerbound
+
+    while True:
+        if is_prime(n):
+            yield n
+        n += 2
+
+def generate_prime_in(lowerbound, upperbound):
+    n = lowerbound + 1 if lowerbound % 2 == 0 else lowerbound
+
+    while n <= upperbound:
+        if is_prime(n):
+            yield n
+        n += 2
