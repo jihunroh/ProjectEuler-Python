@@ -1,5 +1,5 @@
 from math import sqrt
-from itertools import islice, takewhile
+from itertools import islice, takewhile, count, chain
 
 def is_prime(x):
     if x <= 1:
@@ -14,18 +14,7 @@ def is_prime(x):
     return True
 
 def generate_prime():
-    n = 2
-    yield n
-    n = 3
-    
-    while True:
-        if is_prime(n):
-            yield n
-        n += 2
-
-def get_nth_prime(n):
-    f = generate_prime()
-    return list(islice(f, n))[-1]
+    return filter(lambda n: is_prime(n), chain([2], count(3, 2)))
 
 def generate_prime_below(upperbound):
     return takewhile(lambda x: x <= upperbound, generate_prime())
@@ -45,3 +34,14 @@ def generate_prime_in(lowerbound, upperbound):
         if is_prime(n):
             yield n
         n += 2
+
+def generate_composite():
+    n = 4
+    for n in count(4):
+        if not is_prime(n):
+            yield n
+        else:
+            continue
+
+def generate_composite_below(upperbound):
+    return takewhile(lambda x: x <= upperbound, generate_composite())
