@@ -1,6 +1,7 @@
 from ProjectEulerCommon import Answer
-from PrimeNumbers import get_nth_prime
+from ProjectEulerCommon import nth
+from PrimeNumbers import generate_prime
 
 Answer(
-    get_nth_prime(10001)
+    nth(generate_prime(), 10001 - 1)
 )
