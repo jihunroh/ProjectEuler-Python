@@ -1,5 +1,6 @@
 import time, inspect
 from itertools import islice, groupby
+
 start_time = time.time()
 
 def Answer(answer):
