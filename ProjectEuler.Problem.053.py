@@ -1,11 +1,11 @@
-import time
-from eulerlibs import combination
-T0 = time.clock()
-count = 0
-for n in range(1, 101):
-    for r in range(1, n+1):
-        if combination(n, r) > 1000000:
-            count += 1
-print(count)
-print('The execution time is', time.clock()-T0)
-#The execution time is 0.00391685299776
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import combination, quantify
+
+def generate_combination():
+    for n in range(1, 100 + 1):
+        for r in range(2, n - 1):
+            yield combination(n, r)
+
+Answer(
+    quantify(generate_combination(), pred = lambda x: x > 1000000)
+)
