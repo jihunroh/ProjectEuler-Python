@@ -1,33 +1,14 @@
-import time
-from eulerlibs import is_prime, iterate_prime, is_int
+from ProjectEulerCommon import Answer
+from ProjectEulerCommon import first_true
+from PrimeNumbers import generate_composite, generate_prime_below
 from math import sqrt
-T0 = time.clock()
-# p + 2 * x ** 2
 
-def is_odd_composite_number(n):
-    return not is_prime(n)
-def iterate_odd_composite_number():
-    n = 3
-    while True:
-        if is_odd_composite_number(n):
-            yield n
-        n += 2
+def is_goldbach_conjecture(num):
+    return True if next((prime for prime in generate_prime_below(num - 2) if sqrt(0.5 * (num - prime)).is_integer()), False) != False else False
 
-def is_goldbach(n):
-    f = iterate_prime()
-    prime = next(f)
-
-    while ( prime < n):
-        if is_int(sqrt((n - prime) / 2)):
-            return True 
-        prime = next(f)
-    return False
-
-g = iterate_odd_composite_number()
-while True:
-    next_comp = next(g)
-    if not is_goldbach(next_comp):
-        print(next_comp)
-        break
-
-print('The execution time is', time.clock()-T0)
+Answer(
+    first_true(
+        generate_composite(),
+        pred = lambda n: not n % 2 == 0 and not is_goldbach_conjecture(n)
+    )
+)
