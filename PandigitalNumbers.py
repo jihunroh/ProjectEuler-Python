@@ -24,10 +24,10 @@ def is_pandigital(number):
 def generate_pandigital_digits_list():
     return permutations(range(1, 10))
 
-def generate_pandigital(digit = 9, reverse = False):
+def generate_pandigital(digit_list = range(1, 10), reverse = False):
     if reverse:
-        g = permutations(range(digit, 0, -1))
+        g = permutations(reversed(digit_list))
     else:
-        g = permutations(range(1, digit + 1))
+        g = permutations(digit_list)
     while True:
         yield int(''.join(map(str, next(g))))
