@@ -1,5 +1,5 @@
-from ProjectEulerCommon import Answer
-from ProjectEulerCommon import product
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import product
 
 series = """73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
@@ -23,5 +23,13 @@ series = """73167176531330624919225119674426574742355349194934
 71636269561882670428252483600823257530420752963450""".replace('\n', '').replace('\r', '')
 
 Answer(
-    max([product(list(series[i:i+13])) for i in range(0, len(series))])
+    max([product(map(int, series[i:i+13])) for i in range(0, len(series))])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.008.py
+   The Answer is: 23514624000
+   Time Elasped: 0.008975028991699219sec
+------------------------------------------------
+"""

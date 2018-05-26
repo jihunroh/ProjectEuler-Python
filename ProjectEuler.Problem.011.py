@@ -1,5 +1,5 @@
-from ProjectEulerCommon import Answer
-from ProjectEulerCommon import product
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import product
 
 grid = [list(map(int, line.split(' '))) for line in
 """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -51,3 +51,11 @@ def leftdownward(i, j):
 Answer(
     max([max([product(rightward(i, j)), product(downward(i, j)), product(rightdownward(i, j)), product(leftdownward(i, j))]) for i in range(len(grid)) for j in range(len(grid[0]))])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.011.py
+   The Answer is: 70600674
+   Time Elasped: 0.008975744247436523sec
+------------------------------------------------
+"""

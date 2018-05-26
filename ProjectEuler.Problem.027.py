@@ -1,6 +1,6 @@
-from ProjectEulerCommon import Answer
-from ProjectEulerCommon import max_index, product, first_true_index
-from PrimeNumbers import is_prime
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import max_index, product, first_true_index
+from ProjectEulerCommons.PrimeNumbers import is_prime
 from itertools import count
 
 def generate_formula_value(a, b):
@@ -15,3 +15,11 @@ Answer(
     for a in range(-1000, 1000 + 1)
     for b in range(-1000, 1000 + 1)})[0])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.027.py
+   The Answer is: -59231
+   Time Elasped: 14.774448156356812sec
+------------------------------------------------
+"""

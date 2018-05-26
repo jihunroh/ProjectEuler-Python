@@ -1,5 +1,5 @@
-from ProjectEulerCommon import Answer
-from ProjectEulerCommon import max_index, first_true
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import max_index, first_true
 from itertools import count
 
 def generate_recurring_denominator(): #9 > 90 > 99 > 900 > 990 > 999 > 9000 > 9900 > 9990 > 9999 > ...
@@ -14,3 +14,11 @@ def recurring_cycle_length(n):
 Answer(
     max_index({num: recurring_cycle_length(num) for i, num in enumerate(range(1, 1000))})[0]
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.026.py
+   The Answer is: 983
+   Time Elasped: 109.18378067016602sec
+------------------------------------------------
+"""

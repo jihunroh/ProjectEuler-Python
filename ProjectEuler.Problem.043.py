@@ -1,5 +1,5 @@
-from ProjectEulerCommon import Answer
-from PandigitalNumbers import generate_pandigital
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.PandigitalNumbers import generate_pandigital
 
 Answer(
     sum([num for num in generate_pandigital(range(0, 10))
@@ -11,3 +11,11 @@ Answer(
     int(str(num)[6:9]) % 13 == 0 and
     int(str(num)[7:10]) % 17 == 0])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.043.py
+   The Answer is: 16695334890
+   Time Elasped: 20.61912775039673sec
+------------------------------------------------
+"""

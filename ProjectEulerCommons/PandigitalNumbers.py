@@ -21,13 +21,13 @@ def is_pandigital(number):
     elif len(number) == 1:
         return ('1' in number)
 
-def generate_pandigital_digits_list():
-    return permutations(range(1, 10))
+def generate_pandigital_digits_list(digit_range = range(1, 10)):
+    return permutations(digit_range)
 
-def generate_pandigital(digit_list = range(1, 10), reverse = False):
+def generate_pandigital(digit_range = range(1, 10), reverse = False):
     if reverse:
-        g = permutations(reversed(digit_list))
+        g = permutations(reversed(digit_range))
     else:
-        g = permutations(digit_list)
+        g = permutations(digit_range)
     while True:
         yield int(''.join(map(str, next(g))))

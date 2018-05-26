@@ -1,5 +1,6 @@
 from math import sqrt
-from ProjectEulerCommon import product
+from ProjectEulerCommons.Base import product
+from ProjectEulerCommons.PrimeNumbers import generate_prime_below
 
 def factorize(n):
     FactorsList = [1, n]
@@ -12,9 +13,16 @@ def factorize(n):
     return FactorsList
 
 def prime_factorize(n):
-    divisor = 2
     prime_factor_dict = {}
-    
+
+    while n % 2 == 0:
+        try:
+            prime_factor_dict[2] += 1
+        except KeyError:
+            prime_factor_dict[2] = 1
+        n = n / 2
+
+    divisor = 3
     while not n == 1:
         if n % divisor == 0:
             try:
@@ -23,7 +31,8 @@ def prime_factorize(n):
                 prime_factor_dict[divisor] = 1
             n = n / divisor
         else:
-            divisor += 1
+            divisor += 2
+
     return prime_factor_dict
 
 def get_LCM(number_list):
@@ -35,7 +44,7 @@ def get_LCM(number_list):
             factors[factor] = max([prime_factors_dict2.get(factor, 0) for prime_factors_dict2 in prime_factors_dict_list])
     
     for factor, power in factors.items():
-        result *= pow(factor, power)
+        result *= factor**power
     return result
 
 def get_GCD(numberlist):

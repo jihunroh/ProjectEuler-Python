@@ -1,6 +1,14 @@
-from ProjectEulerCommon import Answer
-from Factors import get_LCM
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Factors import get_LCM
 
 Answer(
-    get_LCM(range(1,20+1))
+    get_LCM(range(1, 20 + 1))
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.005.py
+   The Answer is: 232792560
+   Time Elasped: 0.00598454475402832sec
+------------------------------------------------
+"""

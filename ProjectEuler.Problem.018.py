@@ -1,4 +1,4 @@
-from ProjectEulerCommon import Answer
+from ProjectEulerCommons.Base import Answer
 
 triangle = [list(map(int, line.split(' '))) + [0] * (15 - 1 - i) for i, line in enumerate(
 """75
@@ -26,3 +26,11 @@ def reduce_to_local_maximum_path(triangle):
 Answer(
     reduce_to_local_maximum_path(triangle)
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.018.py
+   The Answer is: 1074
+   Time Elasped: 0.005049943923950195sec
+------------------------------------------------
+"""

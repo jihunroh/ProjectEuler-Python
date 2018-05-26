@@ -1,6 +1,6 @@
-from ProjectEulerCommon import Answer
-from PrimeNumbers import generate_prime, is_prime
-from itertools import takewhile, islice
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.PrimeNumbers import generate_prime, is_prime
+from itertools import islice
 
 def is_truncatable_prime(n):
     if n in [2, 3, 5, 7]:
@@ -11,13 +11,14 @@ def is_truncatable_prime(n):
             return False
     return True
 
-def generate_truncatable_prime():
-    g = generate_prime()
-    while True:
-        temp = next(g)
-        if is_truncatable_prime(temp):
-            yield temp
-
 Answer(
-    sum([num for num in islice(generate_truncatable_prime(), 11)])
+    sum([num for num in islice(filter(is_truncatable_prime, generate_prime()), 11)])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.037.py
+   The Answer is: 748317
+   Time Elasped: 7.705394268035889sec
+------------------------------------------------
+"""

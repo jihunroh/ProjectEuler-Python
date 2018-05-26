@@ -1,4 +1,4 @@
-from ProjectEulerCommon import Answer
+from ProjectEulerCommons.Base import Answer
 
 def leftup(n): # 1, 7, 21, 43
     return  4 * n ** 2 - 6 * n + 3
@@ -15,3 +15,11 @@ def rightdown(n): # 1, 3, 13, 31
 Answer(
     1 + sum([sum([leftup(i), leftdown(i), rightup(i), rightdown(i)]) for i in range(2, int(1001 / 2) + 2)])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.028.py
+   The Answer is: 669171001
+   Time Elasped: 0.0069446563720703125sec
+------------------------------------------------
+"""

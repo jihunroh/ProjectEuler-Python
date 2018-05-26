@@ -1,12 +1,13 @@
 import time, inspect
 from itertools import islice, groupby
+from os.path import basename
 
 start_time = time.time()
 
 def Answer(answer):
     filename = inspect.getmodule(inspect.stack()[1][0]).__file__
     print("------------------------------------------------")
-    print("   " + filename)
+    print("   " + basename(filename))
     print("   The Answer is: %s" %answer)
     print("   Time Elasped: %ssec" %(time.time() - start_time))
     print("------------------------------------------------")
@@ -14,7 +15,7 @@ def Answer(answer):
 def product(numberlist):
     prod = 1
     for n in numberlist:
-        prod *= int(n)
+        prod *= n
     return prod
     
 def combination(n, r):
@@ -37,13 +38,6 @@ def max_index(key_value_dict):
                 max_index, max_value = key_value_dict[index][0], key_value_dict[index][1]
         return (max_index, max_value)
 
-def is_palindromic(n):
-    n = str(n)
-    for i in range(0, len(n)):
-        if not n[i] == n[len(n) - i - 1]:
-             return False
-    return True
-
 def max_generator(finite_generator):
     g = finite_generator()
     max_value = next(g)
@@ -52,36 +46,29 @@ def max_generator(finite_generator):
             max_value = value
     return max_value
 
+def take(n, iterable):
+    return list(islice(iterable, n))
+
 def nth(iterable, n, default=None):
-    # Returns the nth item or a default value"
     return next(islice(iterable, n, None), default)
 
 def all_equal(iterable):
-    # Returns True if all the elements are equal to each other"
     g = groupby(iterable)
     return next(g, True) and not next(g, False)
 
 def quantify(iterable, pred=bool):
-    # Count how many times the predicate is true"
     return sum(map(pred, iterable))
 
-def first_true(iterable, default=False, pred=None):
-    """Returns the first true value in the iterable.
-
-    If no true value is found, returns *default*
-
-    If *pred* is not None, returns the first item
-    for which pred(item) is true.
-
-    """
-    # first_true([a,b,c], x) --> a or b or c or x
-    # first_true([a,b], x, f) --> a if f(a) else b if f(b) else x
+def first_true(iterable, default = False, pred = None):
     return next(filter(pred, iterable), default)
 
-def first_true_index(iterable, default=False, pred=None):
+def first_true_index(iterable, default = False, pred = None):
     iterable = enumerate(iterable)
     return next(filter(pred, iterable), default)[0]
 
-def first_true_value(iterable, default=False, pred=None):
+def first_true_value(iterable, default = False, pred = None):
     iterable = enumerate(iterable)
     return next(filter(pred, iterable), default)[1]
+
+def joined_int(int_list):
+    return int(''.join(map(str, int_list)))

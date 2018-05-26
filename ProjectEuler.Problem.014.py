@@ -1,17 +1,33 @@
-from ProjectEulerCommon import Answer
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import max_index
+
+dict_collatz_sequence_length = {
+    13: 10
+}
 
 def get_collatz_sequence_length(n):
-    length = 1
-    while (n is not 1):
-        n = int(n / 2) if n % 2 == 0 else 3 * n + 1
-        length += 1
-    return length
-number, max_length = 1, 1
+    global dict_collatz_sequence_length
+    
+    next_n, length = n, 1
 
-for x in range(1, 1000000 + 1):
-    length = get_collatz_sequence_length(x)
-    if length > max_length:
-        number, max_length = x, length
+    while next_n != 1:
+        if next_n in dict_collatz_sequence_length:
+            dict_collatz_sequence_length[n] = length + dict_collatz_sequence_length[next_n] - 1
+            return length + dict_collatz_sequence_length[next_n] - 1
+        next_n = int(next_n / 2) if next_n % 2 == 0 else 3 * next_n + 1
+        length += 1
+
+    dict_collatz_sequence_length[n] = length
+    return length
+
 Answer(
-    number
+    max_index([(x, get_collatz_sequence_length(x)) for x in range(1, 1000000 + 1)])[0]
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.014.py
+   The Answer is: 837799
+   Time Elasped: 3.183487892150879sec
+------------------------------------------------
+"""

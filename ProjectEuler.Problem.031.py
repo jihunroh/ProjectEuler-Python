@@ -1,5 +1,5 @@
-from ProjectEulerCommon import Answer
-from ProjectEulerCommon import first_true
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import first_true
 from itertools import count
 
 def count_ways(money, coins):
@@ -10,3 +10,11 @@ def count_ways(money, coins):
 Answer(
     count_ways(200, [200, 100, 50, 20, 10, 5, 2, 1])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.031.py
+   The Answer is: 73682
+   Time Elasped: 0.07277131080627441sec
+------------------------------------------------
+"""

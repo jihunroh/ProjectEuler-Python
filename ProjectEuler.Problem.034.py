@@ -1,10 +1,18 @@
-from ProjectEulerCommon import Answer
-from ProjectEulerCommon import factorial, first_true
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import factorial, first_true
 from itertools import count
 
 Answer(
     sum([n for n in range(10, factorial(9) * (first_true(count(1), pred = lambda digits_length: factorial(9) * digits_length < 10**(digits_length - 1)) - 1)) if sum([factorial(int(digit)) for digit in str(n)]) == n])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.034.py
+   The Answer is: 40730
+   Time Elasped: 23.121175289154053sec
+------------------------------------------------
+"""
 
 # 숫자                  자릿수팩토리얼 합
 # 1~9			        1~362,880	    1	    9

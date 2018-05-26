@@ -1,14 +1,24 @@
-from ProjectEulerCommon import Answer
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import quantify
+from ProjectEulerCommons.GeometricalNumbers import is_triangular
 from string import ascii_uppercase
-from math import sqrt
 
 def is_triangle_word(word):
-    word_value =  sum(list(map(lambda x: ascii_uppercase.index(x) + 1, word)))
-    return ((-1 + sqrt(1 + 8 * word_value)) * 0.5).is_integer()
+    word_value = sum(map(lambda x: ascii_uppercase.index(x) + 1, word))
+    return is_triangular(word_value)
 
 with open('ProjectEuler.Problem.042.words.txt', 'r') as f:
     words = [line.replace('"', '').split(',') for line in f.readlines()][0]
 
 Answer(
-    sum([1 for word in words if is_triangle_word(word)])
+    quantify(words, is_triangle_word)
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.042.py
+   The Answer is: 162
+   Time Elasped: 0.012920379638671875sec
+------------------------------------------------
+
+"""

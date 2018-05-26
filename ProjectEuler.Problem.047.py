@@ -1,13 +1,30 @@
-from ProjectEulerCommon import Answer
-from Factors import prime_factorize
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Factors import prime_factorize
 from itertools import count
 
+num = 3
+while True:
+    if len(prime_factorize(num)) == 4:
+        if len(prime_factorize(num + 1)) == 4:
+            if len(prime_factorize(num + 2)) == 4:
+                if len(prime_factorize(num + 3)) == 4:
+                    break
+                else:
+                    num += 4
+            else:
+                num += 3
+        else:
+            num += 2
+    else:
+        num += 1
 Answer(
-    next(num for num in count(3)
-    if range(num, num + 4) and
-    len(prime_factorize(num)) == 4 and
-    len(prime_factorize(num + 1)) == 4 and
-    len(prime_factorize(num + 2)) == 4 and
-    len(prime_factorize(num + 3)) == 4
-    )
+    num
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.047.py
+   The Answer is: 134043
+   Time Elasped: 109.54404807090759sec
+------------------------------------------------
+"""

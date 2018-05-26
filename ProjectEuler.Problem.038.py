@@ -1,5 +1,6 @@
-from ProjectEulerCommon import Answer
-from PandigitalNumbers import generate_pandigital
+from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import first_true
+from ProjectEulerCommons.PandigitalNumbers import generate_pandigital
 
 def get_concatenated_product(multiplicand):
     j, concat_product = 1, ''
@@ -20,5 +21,13 @@ def is_concatenated_product(pandigital_num):
     return False
 
 Answer(
-    max([pandigital_num for pandigital_num in generate_pandigital() if is_concatenated_product(pandigital_num)])
+    first_true(generate_pandigital(reverse = True), pred = is_concatenated_product)
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.038.py
+   The Answer is: 932718654
+   Time Elasped: 0.7702579498291016sec
+------------------------------------------------
+"""

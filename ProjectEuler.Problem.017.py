@@ -1,4 +1,4 @@
-from ProjectEulerCommon import Answer
+from ProjectEulerCommons.Base import Answer
 
 number_word_dict = {
     1: 'one',
@@ -33,7 +33,7 @@ number_word_dict = {
 }
 
 def get_number_word(number):
-    digits_list = {10**(len(str(number))-1-i): int(digit) for i, digit in enumerate(str(number))}
+    digits_list = {10**(len(str(number)) - 1 - i): int(digit) for i, digit in enumerate(str(number))}
 
     result = []
     if digits_list.get(1000) is not None: # 1000자리 처리
@@ -57,3 +57,11 @@ def get_number_word(number):
 Answer(
     sum([len(''.join(get_number_word(n))) for n in range(1, 1000 + 1)])
 )
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.017.py
+   The Answer is: 21124
+   Time Elasped: 0.010972738265991211sec
+------------------------------------------------
+"""
