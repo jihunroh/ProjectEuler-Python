@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 Answer(
     str(sum([n**n for n in range(1, 1000 + 1)]))[-10:]

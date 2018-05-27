@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import factorial
+from ProjectEulerCommons.Base import *
 
 Answer(
     sum([int(digit) for digit in str(factorial(100))])

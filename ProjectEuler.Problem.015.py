@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import combination
+from ProjectEulerCommons.Base import *
 
 Answer(
     combination(40, 20) #https://ko.wikipedia.org/wiki/격자_경로

@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 with open('ProjectEuler.Problem.067.triangle.txt', 'r') as f:
     triangle = [list(map(int, line.split(' '))) + [0] * (15 - 1 - i) for i, line in enumerate([line.replace('\n', '') for line in f.readlines()])]

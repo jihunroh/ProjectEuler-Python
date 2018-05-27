@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PandigitalNumbers import generate_pandigital
 
 def get_concatenated_product(multiplicand):

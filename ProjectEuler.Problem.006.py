@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 Answer(
     sum(range(1, 100 + 1)) ** 2  - sum([x * x for x in range(1, 100 + 1)])

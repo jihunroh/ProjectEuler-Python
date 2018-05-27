@@ -1,6 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true, all_equal
-from itertools import count
+from ProjectEulerCommons.Base import *
 
 Answer(
     next(first_true(range(10 ** (digit - 1), int(10 ** digit / 6)), pred = lambda num: all_equal(map(sorted, map(str, [num, num * 2, num * 3, num * 4, num * 5, num * 6])))) 

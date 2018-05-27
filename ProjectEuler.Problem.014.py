@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import max_index
+from ProjectEulerCommons.Base import *
 
 dict_collatz_sequence_length = {
     13: 10

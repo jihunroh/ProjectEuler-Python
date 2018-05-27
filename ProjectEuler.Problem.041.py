@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PandigitalNumbers import generate_pandigital, is_pandigital
 from ProjectEulerCommons.PrimeNumbers import is_prime, generate_prime_below
 

@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true, product
+from ProjectEulerCommons.Base import *
 
 Answer(
     product(first_true([(a, b, 1000 - a - b) for a in range(1, 1000) for b in range(a, 1000)], pred = lambda ab_pair: ab_pair[0] * ab_pair[0] + ab_pair[1] * ab_pair[1] == ab_pair[2] * ab_pair[2]))

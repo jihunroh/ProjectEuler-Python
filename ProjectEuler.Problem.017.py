@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 number_word_dict = {
     1: 'one',

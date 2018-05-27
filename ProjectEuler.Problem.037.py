@@ -1,6 +1,5 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PrimeNumbers import generate_prime, is_prime
-from itertools import islice
 
 def is_truncatable_prime(n):
     if n in [2, 3, 5, 7]:

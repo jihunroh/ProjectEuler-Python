@@ -1,6 +1,5 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PrimeNumbers import generate_prime_below
-from itertools import takewhile
 
 Answer(
     sum([n for n in generate_prime_below(2000000)])

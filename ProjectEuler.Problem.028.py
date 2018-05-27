@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 def leftup(n): # 1, 7, 21, 43
     return  4 * n ** 2 - 6 * n + 3

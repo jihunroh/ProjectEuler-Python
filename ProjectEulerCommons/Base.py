@@ -1,5 +1,5 @@
 import time, inspect
-from itertools import islice, groupby
+import itertools
 from os.path import basename
 
 start_time = time.time()
@@ -11,6 +11,14 @@ def Answer(answer):
     print("   The Answer is: %s" %answer)
     print("   Time Elasped: %ssec" %(time.time() - start_time))
     print("------------------------------------------------")
+
+chain = itertools.chain
+count = itertools.count
+groupby = itertools.groupby
+islice = itertools.islice
+permutations = itertools.permutations
+takewhile = itertools.takewhile   
+
 
 def product(numberlist):
     prod = 1

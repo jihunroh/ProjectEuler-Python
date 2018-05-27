@@ -1,7 +1,5 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import quantify, first_true, joined_int
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PrimeNumbers import generate_prime_below, is_prime
-from itertools import islice
 
 def circulations(target_list):
     for i in range(len(target_list)):

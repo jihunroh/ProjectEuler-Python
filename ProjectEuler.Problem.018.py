@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 triangle = [list(map(int, line.split(' '))) + [0] * (15 - 1 - i) for i, line in enumerate(
 """75

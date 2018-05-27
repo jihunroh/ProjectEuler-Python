@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import quantify
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.GeometricalNumbers import is_triangular
 from string import ascii_uppercase
 

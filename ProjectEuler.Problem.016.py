@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 
 Answer(
     sum(int(digit) for digit in str(2**1000))

@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import nth
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PrimeNumbers import generate_prime
 
 Answer(

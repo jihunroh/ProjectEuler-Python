@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.Factors import factorize
 
 list_abundant = [n for n in range(1, 28123 + 1) if sum(factorize(n)[0:-1]) > n]

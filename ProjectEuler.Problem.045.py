@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.GeometricalNumbers import generate_triangular_number, is_hexagonal, is_pentagonal
 
 Answer(

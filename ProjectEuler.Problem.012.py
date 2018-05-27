@@ -1,7 +1,5 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true
+from ProjectEulerCommons.Base import Answer, first_true
 from ProjectEulerCommons.Factors import factorize
-from itertools import count
 from ProjectEulerCommons.GeometricalNumbers import generate_triangular_number
 
 Answer(

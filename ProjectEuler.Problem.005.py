@@ -1,4 +1,4 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.Factors import get_LCM
 
 Answer(

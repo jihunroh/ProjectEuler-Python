@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Factors import factorize
+from ProjectEulerCommons.Base import *
 
 def d(n):
     return 0 if n == 1 else sum(factorize(n)[0:-1])

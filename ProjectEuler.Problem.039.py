@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import max_index
+from ProjectEulerCommons.Base import *
 
 def get_triangle_length_pairs(p):
     return sum([True for a in range(1, p - 2) for b in range(a, p - a - 1) if p - a - b > b and a**2 + b**2 == (p - a - b)**2])

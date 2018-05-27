@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import quantify
+from ProjectEulerCommons.Base import *
 from calendar import monthrange
 
 Answer(

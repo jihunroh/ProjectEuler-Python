@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from string import ascii_uppercase
+from ProjectEulerCommons.Base import *
 from string import ascii_uppercase
 
 with open('ProjectEuler.Problem.022.names.txt', 'r') as f:

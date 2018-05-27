@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import product
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.Factors import get_irreducibe_fraction
 from fractions import Fraction
 

@@ -1,6 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import factorial, first_true
-from itertools import count
+from ProjectEulerCommons.Base import *
 
 Answer(
     sum([n for n in range(10, factorial(9) * (first_true(count(1), pred = lambda digits_length: factorial(9) * digits_length < 10**(digits_length - 1)) - 1)) if sum([factorial(int(digit)) for digit in str(n)]) == n])

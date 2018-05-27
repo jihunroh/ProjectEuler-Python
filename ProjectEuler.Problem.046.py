@@ -1,5 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PrimeNumbers import generate_composite, generate_prime_below
 from math import sqrt
 

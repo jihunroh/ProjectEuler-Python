@@ -1,6 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true_value
-from itertools import count
+from ProjectEulerCommons.Base import *
 
 def generate_digit_of_irrational_decimal_fraction():
     for i in count(1):

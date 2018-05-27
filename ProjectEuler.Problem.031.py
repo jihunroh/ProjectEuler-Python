@@ -1,6 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true
-from itertools import count
+from ProjectEulerCommons.Base import *
 
 def count_ways(money, coins):
     if len(coins) == 1:

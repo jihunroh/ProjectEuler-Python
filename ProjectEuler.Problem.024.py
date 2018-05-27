@@ -1,6 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import first_true_value
-from itertools import permutations
+from ProjectEulerCommons.Base import *
 
 Answer(
     int(''.join(map(str, first_true_value(permutations(list(range(10))), pred = lambda enum: enum[0] == 1000000 - 1))))

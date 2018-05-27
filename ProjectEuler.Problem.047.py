@@ -1,6 +1,5 @@
-from ProjectEulerCommons.Base import Answer
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.Factors import prime_factorize
-from itertools import count
 
 num = 3
 while True:

@@ -1,6 +1,4 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import max_index, first_true
-from itertools import count
+from ProjectEulerCommons.Base import *
 
 def generate_recurring_denominator(): #9 > 90 > 99 > 900 > 990 > 999 > 9000 > 9900 > 9990 > 9999 > ...
     for length in count(1):

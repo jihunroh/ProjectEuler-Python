@@ -1,7 +1,5 @@
-from ProjectEulerCommons.Base import Answer
-from ProjectEulerCommons.Base import max_index, product, first_true_index
+from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.PrimeNumbers import is_prime
-from itertools import count
 
 def generate_formula_value(a, b):
     for n in count(0):
