@@ -1,25 +1,20 @@
-import time
-T0 = time.clock()
-def iterate_power10(n):
-    max_digit, ans = 10, 1
-    
-    while True:
-        if len(str(ans)) > max_digit:
-            ans = cut_digit(ans) 
-        ans *= n
-        yield cut_digit(ans)
-def power10(n, p):
-    f = iterate_power10(n)
-    for i in range(p):
-        ans = next(f)
-    return ans
-    
-def cut_digit(n):
-    max_digit = 10
-    return int(str(n)[-max_digit:])
+from ProjectEulerCommons.Base import *
 
-print(cut_digit(power10(2,7830457) * 28433) + 1)
+def last_digits_pow(x, y):
+    i, result = 1, 1
+    while i != y:
+        result = int(str(result * x)[-10:])
+        i += 1
+    return result
 
-print('The execution time is', time.clock()-T0)
-#8739992577
-#The execution time is 49.2251879109
+Answer(
+    str(28433 * last_digits_pow(2, 7830457) + 1)[-10:]
+)
+
+"""
+------------------------------------------------
+   ProjectEuler.Problem.097.py
+   The Answer is: 9369996289
+   Time Elasped: 7.141899585723877sec
+------------------------------------------------
+"""
