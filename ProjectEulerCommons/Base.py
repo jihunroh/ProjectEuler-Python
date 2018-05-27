@@ -1,6 +1,7 @@
 import time, inspect
 import itertools
 from os.path import basename
+import math
 
 start_time = time.time()
 
@@ -12,6 +13,7 @@ def Answer(answer):
     print("   Time Elasped: %ssec" %(time.time() - start_time))
     print("------------------------------------------------")
 
+ceil = math.ceil
 chain = itertools.chain
 count = itertools.count
 groupby = itertools.groupby
@@ -80,3 +82,8 @@ def first_true_value(iterable, default = False, pred = None):
 
 def joined_int(int_list):
     return int(''.join(map(str, int_list)))
+
+def last(iterable):
+    for item in iterable:
+        pass
+    return item
