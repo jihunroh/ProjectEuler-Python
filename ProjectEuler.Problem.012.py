@@ -1,9 +1,9 @@
 from ProjectEulerCommons.Base import Answer, first_true
 from ProjectEulerCommons.Factors import factorize
-from ProjectEulerCommons.GeometricalNumbers import generate_triangular_number
+from ProjectEulerCommons.GeometricalNumbers import generate_triangular
 
 Answer(
-    first_true(generate_triangular_number(), pred = lambda n: len(factorize(n)) > 500)
+    first_true(generate_triangular(), pred = lambda n: len(factorize(n)) > 500)
 )
 
 """
