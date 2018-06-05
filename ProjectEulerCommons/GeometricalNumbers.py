@@ -7,7 +7,10 @@ def generate_triangular():
 
 def generate_pentagonal():
     for i in count(1):
-        yield int(i* (3 * i - 1) * 0.5)
+        yield pentagonal(i)
+
+def pentagonal(i):
+    return int(i* (3 * i - 1) * 0.5)
 
 def is_triangular(n):
    return ((-1 + sqrt(1 + 8 * n)) / 2).is_integer()

@@ -14,20 +14,25 @@ def Answer(answer):
     print("------------------------------------------------")
 
 ceil = math.ceil
+sqrt = math.sqrt
 chain = itertools.chain
 count = itertools.count
+cycle = itertools.cycle
 groupby = itertools.groupby
 islice = itertools.islice
 permutations = itertools.permutations
-takewhile = itertools.takewhile   
-
+takewhile = itertools.takewhile
+zip_longest = itertools.zip_longest
 
 def product(numberlist):
     prod = 1
     for n in numberlist:
         prod *= n
     return prod
-    
+
+def diff(numberlist):
+    return abs(numberlist[1] - numberlist[0])
+
 def combination(n, r):
     return int(product(range(r+1, n+1)) / factorial(n-r))
 
@@ -79,6 +84,12 @@ def first_true_index(iterable, default = False, pred = None):
 def first_true_value(iterable, default = False, pred = None):
     iterable = enumerate(iterable)
     return next(filter(pred, iterable), default)[1]
+
+def grouper(iterable, n, fillvalue=None):
+    "Collect data into fixed-length chunks or blocks"
+    # grouper('ABCDEFG', 3, 'x') --> ABC DEF Gxx"
+    args = [iter(iterable)] * n
+    return zip_longest(*args, fillvalue=fillvalue)
 
 def joined_int(int_list):
     return int(''.join(map(str, int_list)))
