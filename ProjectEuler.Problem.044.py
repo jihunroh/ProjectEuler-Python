@@ -1,13 +1,20 @@
-import time
-from eulerlibs import is_int
-T0 = time.clock()
+from ProjectEulerCommons.Base import *
+from ProjectEulerCommons.GeometricalNumbers import pentagonal, is_pentagonal
 
-def iterate_pentagonal_number():
-    n = 1
-    while True:
-        yield n * (3 * n - 1) /2
-        n += 1
-def is_pentagonal(n):
-    return is_int((1 + sqrt(1 + 24 * n)) / 6)
+Answer(
+    diff(first_true(
+        (
+            (pentagonal(k), pentagonal(j))
+            for k, j in ((k, j) for subrange in count(0, 100) for (k, j) in ((k, j) for k, j in sorted([(k, j) for k in range(subrange, subrange + 100) for j in range(1, k)], key = lambda x: (x[0] - x[1]) * (3 * x[0] + 3 * x[1] - 1))))
+        ),
+        pred = lambda x: is_pentagonal(x[0] + x[1]) and is_pentagonal(x[0] - x[1])
+    ))
+)
 
-print('The execution time is', time.clock()-T0)
+"""
+------------------------------------------------
+   ProjectEuler.Problem.044.py
+   The Answer is: 5482660
+   Time Elasped: 7.399751663208008sec
+------------------------------------------------
+"""
