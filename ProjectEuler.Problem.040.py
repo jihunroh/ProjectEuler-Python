@@ -1,9 +1,5 @@
 from ProjectEulerCommons.Base import *
-
-def generate_digit_of_irrational_decimal_fraction():
-    for i in count(1):
-        for j in str(i):
-            yield int(j)
+from ProjectEulerCommons.Fractions import generate_digit_of_irrational_decimal_fraction
 
 Answer(
     first_true_value(generate_digit_of_irrational_decimal_fraction(), pred = lambda enum: enum[0] + 1 == 1) *

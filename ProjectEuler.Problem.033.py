@@ -1,9 +1,8 @@
 from ProjectEulerCommons.Base import *
-from ProjectEulerCommons.Factors import get_irreducibe_fraction
-from fractions import Fraction
+from ProjectEulerCommons.Fractions import fraction, get_irreducibe_fraction
 
 Answer(
-    product([Fraction(numerator, denominator)
+    product([fraction(numerator, denominator)
     for numerator in range(10, 100) for denominator in range(numerator + 1, 100)
     if (
         (

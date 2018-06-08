@@ -49,7 +49,3 @@ def get_LCM(number_list):
 
 def get_GCD(numberlist):
     return int(product(numberlist) / get_LCM(numberlist))
-
-def get_irreducibe_fraction(fraction):
-    GCD = get_GCD([fraction[0], fraction[1]])
-    return (int(fraction[0] / GCD), int(fraction[1] / GCD))

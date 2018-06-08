@@ -1,14 +1,8 @@
 from ProjectEulerCommons.Base import *
-from fractions import Fraction
-
-def generate_continued_fraction():
-    result = 1
-    while True:
-        result = Fraction(1 + 1 / (1 + result))
-        yield result
+from ProjectEulerCommons.Fractions import generate_continued_fraction
 
 Answer(
-    quantify(take(1000, generate_continued_fraction()), lambda fraction: len(str(fraction.numerator)) > len(str(fraction.denominator)))
+    quantify(take(1000, generate_continued_fraction()), lambda frac: len(str(frac.numerator)) > len(str(frac.denominator)))
 )
 
 """
