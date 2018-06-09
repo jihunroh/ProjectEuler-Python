@@ -1,5 +1,5 @@
 from ProjectEulerCommons.Base import *
-from ProjectEulerCommons.Fractions import fraction, get_irreducibe_fraction
+from ProjectEulerCommons.Fractions import fraction
 
 Answer(
     product([fraction(numerator, denominator)
