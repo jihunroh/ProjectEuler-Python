@@ -2,6 +2,7 @@ import time, inspect
 import itertools
 from os.path import basename
 import math
+from functools import reduce
 
 start_time = time.time()
 
@@ -14,7 +15,9 @@ def Answer(answer):
     print("------------------------------------------------")
 
 ceil = math.ceil
+floor = math.floor
 sqrt = math.sqrt
+log = math.log
 chain = itertools.chain
 count = itertools.count
 cycle = itertools.cycle
@@ -24,11 +27,8 @@ permutations = itertools.permutations
 takewhile = itertools.takewhile
 zip_longest = itertools.zip_longest
 
-def product(numberlist):
-    prod = 1
-    for n in numberlist:
-        prod *= n
-    return prod
+def product(numberslist):
+    return reduce(lambda x, y: x * y, numberslist)
 
 def diff(numberlist):
     return abs(numberlist[1] - numberlist[0])
@@ -91,6 +91,9 @@ def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
     return zip_longest(*args, fillvalue=fillvalue)
 
+def digits_list(n):
+    return [(n // (10**i)) % 10 for i in range(floor(log(n, 10)), -1, -1)] if n != 0 else [0]
+
 def joined_int(int_list):
     return int(''.join(map(str, int_list)))
 
@@ -98,3 +101,8 @@ def last(iterable):
     for item in iterable:
         pass
     return item
+
+def count_summation_way(money, coins):
+    if len(coins) == 1:
+        return 1 if money % coins[0] == 0 else 0
+    return sum([count_summation_ways(money - coins[0] * cnt_first_coin, coins[1:]) for cnt_first_coin in range(0, first_true(count(0), pred = lambda x: money - coins[0] * x < 0))])
