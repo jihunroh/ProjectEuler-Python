@@ -102,7 +102,7 @@ def last(iterable):
         pass
     return item
 
-def count_summation_way(money, coins):
+def count_summation_ways(money, coins):
     if len(coins) == 1:
         return 1 if money % coins[0] == 0 else 0
     return sum([count_summation_ways(money - coins[0] * cnt_first_coin, coins[1:]) for cnt_first_coin in range(0, first_true(count(0), pred = lambda x: money - coins[0] * x < 0))])
