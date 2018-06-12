@@ -48,7 +48,7 @@ def leftdownward(i, j):
         return [0] * 4
 
 Answer(
-    max([max([product(rightward(i, j)), product(downward(i, j)), product(rightdownward(i, j)), product(leftdownward(i, j))]) for i in range(len(grid)) for j in range(len(grid[0]))])
+    max([max([prod(rightward(i, j)), prod(downward(i, j)), prod(rightdownward(i, j)), prod(leftdownward(i, j))]) for i in range(len(grid)) for j in range(len(grid[0]))])
 )
 
 """

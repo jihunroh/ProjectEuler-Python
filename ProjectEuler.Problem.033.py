@@ -2,7 +2,7 @@ from ProjectEulerCommons.Base import *
 from ProjectEulerCommons.Fractions import fraction
 
 Answer(
-    product([fraction(numerator, denominator)
+    prod([fraction(numerator, denominator)
     for numerator in range(10, 100) for denominator in range(numerator + 1, 100)
     if (
         (

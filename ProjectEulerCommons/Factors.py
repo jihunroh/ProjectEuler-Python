@@ -1,5 +1,5 @@
 from math import sqrt
-from ProjectEulerCommons.Base import product
+from ProjectEulerCommons.Base import prod
 from ProjectEulerCommons.PrimeNumbers import generate_prime_below
 
 def factorize(n):
@@ -48,4 +48,4 @@ def get_LCM(number_list):
     return result
 
 def get_GCD(numberlist):
-    return int(product(numberlist) / get_LCM(numberlist))
+    return int(prod(numberlist) / get_LCM(numberlist))

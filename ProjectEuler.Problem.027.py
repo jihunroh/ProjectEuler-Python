@@ -9,7 +9,7 @@ def count_produced_prime_numbers(a, b):
     return first_true_index(generate_formula_value(a, b), pred = lambda enum: not is_prime(enum[1]))
 
 Answer(
-    product(max_index({(a, b): count_produced_prime_numbers(a, b)
+    prod(max_index({(a, b): count_produced_prime_numbers(a, b)
     for a in range(-1000, 1000 + 1)
     for b in range(-1000, 1000 + 1)})[0])
 )

@@ -22,7 +22,7 @@ series = """73167176531330624919225119674426574742355349194934
 71636269561882670428252483600823257530420752963450""".replace('\n', '').replace('\r', '')
 
 Answer(
-    max([product(map(int, series[i:i+13])) for i in range(0, len(series))])
+    max([prod(map(int, series[i:i+13])) for i in range(0, len(series))])
 )
 
 """

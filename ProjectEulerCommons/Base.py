@@ -21,20 +21,21 @@ log = math.log
 chain = itertools.chain
 count = itertools.count
 cycle = itertools.cycle
+product = itertools.product
 groupby = itertools.groupby
 islice = itertools.islice
 permutations = itertools.permutations
 takewhile = itertools.takewhile
 zip_longest = itertools.zip_longest
 
-def product(numberslist):
+def prod(numberslist):
     return reduce(lambda x, y: x * y, numberslist)
 
 def diff(numberlist):
     return abs(numberlist[1] - numberlist[0])
 
 def combination(n, r):
-    return int(product(range(r+1, n+1)) / factorial(n-r))
+    return int(prod(range(r+1, n+1)) / factorial(n-r))
 
 def factorial(n):
     return n * factorial(n-1) if (n != 0 and n != 1) else 1
@@ -106,3 +107,6 @@ def count_summation_ways(money, coins):
     if len(coins) == 1:
         return 1 if money % coins[0] == 0 else 0
     return sum([count_summation_ways(money - coins[0] * cnt_first_coin, coins[1:]) for cnt_first_coin in range(0, first_true(count(0), pred = lambda x: money - coins[0] * x < 0))])
+
+def dot(a, b):
+    return sum([i * j for (i, j) in zip(a, b)])
