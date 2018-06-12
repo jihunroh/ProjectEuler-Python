@@ -1,8 +1,7 @@
-import time, inspect
-import itertools
+import time, inspect, itertools, math
 from os.path import basename
-import math
 from functools import reduce
+from operator import mul
 
 start_time = time.time()
 
@@ -108,5 +107,5 @@ def count_summation_ways(money, coins):
         return 1 if money % coins[0] == 0 else 0
     return sum([count_summation_ways(money - coins[0] * cnt_first_coin, coins[1:]) for cnt_first_coin in range(0, first_true(count(0), pred = lambda x: money - coins[0] * x < 0))])
 
-def dot(a, b):
-    return sum([i * j for (i, j) in zip(a, b)])
+def dotproduct(vec1, vec2):
+    return sum(map(mul, vec1, vec2))
